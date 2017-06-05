@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { AuthService } from '../../user/auth.service';
 import { ISession } from '../shared/index';
 import { VoterService } from './voter.service';
@@ -18,7 +18,7 @@ export class SessionListComponent implements OnChanges {
     constructor(private auth: AuthService, private voterService: VoterService) { }
 
     //whenever the input variable changes
-    ngOnChanges() {
+    ngOnChanges(changes: SimpleChanges) {
         if (this.sessions) {
             this.filterSessions(this.filterBy);
             this.sortBy === 'name' ? this.visibleSessions.sort(sortByNameAsc) : this.visibleSessions.sort(sortByVotesDesc);
