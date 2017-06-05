@@ -9,7 +9,7 @@ import {
 } from './events/index';
 
 import {Error404Component} from './errors/404.component';
-//add for aot
+//add for Rollup
 import { userRoutes } from './user/user.routes'
 
 export const appRoutes: Routes = [
@@ -25,7 +25,7 @@ export const appRoutes: Routes = [
     { 
         path: 'user',
         children: userRoutes
-        //lazy loader module, must remove this for aot
+        //lazy loader module, need remove this for Rollup which not support splitting code
         //loadChildren: 'app/user/user.module#UserModule' 
     },
 ];
