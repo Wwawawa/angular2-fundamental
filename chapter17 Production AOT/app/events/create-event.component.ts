@@ -5,7 +5,10 @@ import {EventService} from './shared/event.service';
 
 @Component({
     moduleId: module.id,
+    //systemjs
     templateUrl: 'create-event.component.html',
+    //Webpack, this don't need the moduleId configuration upon
+    //templateUrl: './create-event.component.html',
     styles: [
         `
         em {float:right;color:#e05c65;padding-left:10px;}
