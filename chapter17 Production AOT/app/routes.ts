@@ -9,6 +9,8 @@ import {
 } from './events/index';
 
 import {Error404Component} from './errors/404.component';
+//add for aot
+import { userRoutes } from './user/user.routes'
 
 export const appRoutes: Routes = [
     //order matters
@@ -19,6 +21,11 @@ export const appRoutes: Routes = [
     { path: '404', component: Error404Component },
     { path: '', redirectTo: '/events', pathMatch: 'full' },  //pathMatch: prefix or full
 
-    // user prefix, localhost/user/x, will load module here: app/user/user.module and the module name is UserModule, concat '#'
-    { path: 'user', loadChildren: 'app/user/user.module#UserModule' },
+    // user prefix, localhost/user/x, will load module here: app/user/user.module and the module name is UserModule, concat '#'    
+    { 
+        path: 'user',
+        children: userRoutes
+        //lazy loader module, must remove this for aot
+        //loadChildren: 'app/user/user.module#UserModule' 
+    },
 ];
